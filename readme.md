@@ -35,12 +35,12 @@ type Product = {
 
 **প্রথম নজরে, এগুলি একই রকম মনে হতে পারে। তবে, যখন আমরা এদের বৈশিষ্ট গুলো দেখবো তখন তাদের পার্থক্যগুলি স্পষ্ট হবে**
 
-1. **Structure Definition**
+**1. Structure Definition**
 
 - **Interface**: সাধারণত object এর structure define করতে ব্যবহার হয়।
 - **Type**: object ছাড়াও union, tuple, primitive, function সব define করা যায়।
 
-2. **Extending / Inheritance**
+**2. Extending / Inheritance**
 
 - **Interface**: extend করা খুব সহজ।
 - **Type**: extend করতে পারে, কিন্তু syntax আলাদা।
@@ -61,7 +61,7 @@ type C = {
 type D = C & { y: number };
 ```
 
-3. **Declaration Merging**
+**3. Declaration Merging**
 
 - **Interface**: একই নামে দুইবার declare করলে merge হয়ে যায়।
 - **Type**: একই নামে দুইবার declare করলে error দেয়।
@@ -76,7 +76,7 @@ interface Screen {
 }
 ```
 
-4. **Union এবং Intersection**
+**4. Union এবং Intersection**
 
 - **Interface**: union support করে না।
 - **Type**: union এবং intersection দুইটাই support করে।
@@ -86,7 +86,7 @@ type Result = "success" | "error";
 type Combined = { a: number } & { b: number };
 ```
 
-5. **Primitive Support**
+**5. Primitive Support**
 
 - **Interface**: শুধু object type define করতে পারে।
 - **Type**: primitive define করা যায়।
@@ -96,7 +96,7 @@ type Age = number;
 type Name = string;
 ```
 
-6. **Computed Types**
+**6. Computed Types**
 
 - **Interface:** computed type support করে না।
 - **Type:** করতে পারে।
