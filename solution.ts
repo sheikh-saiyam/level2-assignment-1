@@ -139,6 +139,54 @@ const printBookDetails = (book: Book): void => {
 
 //? ------------------ PROBLEM 7 ------------------
 
+type UniqueValueType = (string | number)[];
+
+const getUniqueValues = (
+  arr1: UniqueValueType,
+  arr2: UniqueValueType
+): UniqueValueType => {
+  let uniqueArray: UniqueValueType = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    const idx = arr1[i];
+
+    let isExists = false;
+
+    for (let j = 0; j < arr1.length; j++) {
+      if (uniqueArray[j] === idx) {
+        isExists = true;
+        break;
+      }
+    }
+
+    if (!isExists) {
+      uniqueArray[uniqueArray.length] = idx;
+    }
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    const idx = arr2[i];
+
+    let isExists = false;
+
+    for (let j = 0; j < arr2.length; j++) {
+      if (uniqueArray[j] === idx) {
+        isExists = true;
+        break;
+      }
+    }
+
+    if (!isExists) {
+      uniqueArray[uniqueArray.length] = idx;
+    }
+  }
+  return uniqueArray;
+};
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2));
+
 //? ------------------ PROBLEM 8 ------------------
 
 interface Product {
