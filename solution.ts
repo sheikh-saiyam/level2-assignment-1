@@ -52,13 +52,15 @@ interface FilterItemType {
 }
 
 const filterByRating = (items: FilterItemType[]): FilterItemType[] => {
-  if (items.find((arr) => arr.rating > 5)) {
+  if (items.find((arr) => arr.rating > 5 || arr.rating < 0)) {
     throw new Error("Invalid Data! Rating must be between 0 to 5");
   }
 
   const filteredItem = items.filter((item) => item.rating >= 4);
   return filteredItem;
 };
+
+console.log(filterByRating([{ title: "Item1", rating: 4.5 }, { title: "Item2", rating: 3 }]));
 
 interface ActiveUser {
   id: number;
