@@ -60,7 +60,6 @@ const filterByRating = (items: FilterItemType[]): FilterItemType[] => {
   return filteredItem;
 };
 
-console.log(filterByRating([{ title: "Item1", rating: 4.5 }, { title: "Item2", rating: 3 }]));
 
 interface ActiveUser {
   id: number;
