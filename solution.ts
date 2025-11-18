@@ -139,30 +139,40 @@ const printBookDetails = (book: Book): void => {
 
 //? ------------------ PROBLEM 7 ------------------
 
-// type UniqueValueType = (string | number)[];
+//? ------------------ PROBLEM 8 ------------------
 
-// const getUniqueValues = (
-//   arr1: UniqueValueType,
-//   arr2: UniqueValueType
-// ): UniqueValueType => {
-//   let uniqueArray: UniqueValueType = [];
-//   const array = [...arr1, ...arr2];
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
 
-//   for (let index = 0; index < array.length; index++) {
-//     const idx = array[index];
-//     console.log({ idx });
-//     console.log(uniqueArray[idx + 1]);
-//     // console.log(arr1[index]);
-//     // console.log(arr2[index]);
-//     if (arr1[index] === arr2[index]) {
-//       uniqueArray[index + 1];
-//     }
-//   }
+const calculateTotalPrice = (products: Product[]): number => {
+  if (products.length === 0) {
+    return 0;
+  }
 
-//   return uniqueArray;
-// };
+  const total = products.reduce((acc, product) => {
+    if (product?.discount && (product.discount < 0 || product.discount > 100)) {
+      throw new Error("Invalid value! Discount must be between 0 to 100");
+    }
 
-// const array1 = ["apple", "banana", "orange", 1, 2, 3];
-// const array2 = ["banana", "kiwi", "grape"];
+    const price = product.price * product.quantity;
+    const discountPrice = product?.discount
+      ? price * (product?.discount / 100)
+      : 0;
 
-// console.log(getUniqueValues(array1, array2));
+    return acc + price - discountPrice;
+  }, 0);
+
+  return total;
+};
+
+// const products = [
+//   { name: "Pen", price: 10, quantity: 2 },
+//   { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+//   { name: "Bag", price: 50, quantity: 1, discount: 20 },
+// ];
+
+// console.log(calculateTotalPrice(products));
